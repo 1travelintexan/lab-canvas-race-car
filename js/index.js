@@ -3,7 +3,10 @@ let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 canvas.style.border = "2px solid black";
 
-//test for github
+//canvas variables
+let height = canvas.height - 200;
+let middle = canvas.width / 2 + 60;
+let playerX = canvas.width / 2 + 60;
 
 //all varibles
 let startBtn = document.querySelector("#start-button");
@@ -19,17 +22,33 @@ bg.src = "../images/road.png";
 let car = new Image();
 car.src = "../images/car.png";
 
-let car2 = new Image();
-car2.src = "../images/car-top.png";
+let carPink = new Image();
+carPink.src = "../images/carPink.png";
+let carWhite = new Image();
+carWhite.src = "../images/carWhite.png";
+let carYellow = new Image();
+carYellow.src = "../images/carYellow.png";
+// let bus = new Image();
+// bus.src = "../images/bus-top.png";
 
-let bus = new Image();
-bus.src = "../images/bus-top.png";
+// let motorcycle = new Image();
+// motorcycle.src = "../images/motorcycle.png";
 
-let motorcycle = new Image();
-motorcycle.src = "../images/motorcycle.png";
+let moveRight = false;
+let moveLeft = false;
 
+//variables for sizes and movements
+let carsY = -200;
+let speed = 5;
 let intervalId = 0;
 let isGameOver = false;
+
+//traffic cars information
+let carArray = [
+  { x: middle, y: -200 },
+  { x: middle - 200, y: -600 },
+  { x: middle, y: -900 },
+];
 
 //start game function
 function startGame() {
@@ -38,16 +57,39 @@ function startGame() {
   logo.style.display = "none";
   arrows.style.display = "block";
 
-  //canvas variables
-  let height = canvas.height - 120;
-  let middle = canvas.width / 2 - 20;
-
   //draw background
   ctx.drawImage(bg, 0, 0, 500, 700);
 
   //draw motorcycle
-  ctx.drawImage(motorcycle, middle, height, 40, 80);
+  ctx.drawImage(car, playerX, height, 80, 150);
 
+  for (let i = 0; i < carArray.length; i++) {
+    ctx.drawImage(carPink, carArray[i].x, carArray[i].y, 80, 110);
+    carArray[i].y += speed;
+    //ctx.drawImage(car, middle + 50, height, 80, 150);
+    if (carArray[i].y > canvas.height) {
+      carArray[i].y = -700;
+    }
+  }
+
+  if (playerX < canvas.width - 120 && moveRight) {
+    playerX += 5;
+  } else if (playerX > 50 && moveLeft) {
+    playerX -= 5;
+  }
+
+  //listener for player movement
+  document.addEventListener("keydown", (event) => {
+    if (event.code === "ArrowRight") {
+      moveRight = true;
+    } else if (event.code === "ArrowLeft") {
+      moveLeft = true;
+    }
+  });
+  document.addEventListener("keyup", () => {
+    moveRight = false;
+    moveLeft = false;
+  });
   if (isGameOver) {
     cancelAnimationFrame(intervalId);
   } else {
@@ -61,6 +103,7 @@ function restartGame() {
   logo.style.display = "none";
   arrows.style.display = "block";
 }
+
 //game begins here
 window.addEventListener("load", () => {
   canvas.style.display = "none";
