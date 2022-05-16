@@ -1,6 +1,7 @@
 body {
+  margin: 0;
   padding: 0;
-  text-align: center;
+  background-color: rgb(184, 246, 225);
 }
 
 h1 {
@@ -20,20 +21,30 @@ h1 {
   flex-direction: column;
 }
 
-.game-intro p {
-  font-size: 18px;
+h4 {
+  text-align: center;
+  font-size: 1rem;
   font-family: "Verdana";
 }
 
 #logo-img {
-  width: 30vw;
+  width: 40vw;
 }
+
 #game-logo {
   width: 30vw;
 }
 
+#arrows-img-div {
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 #arrows-img {
-  width: 150px;
+  width: 8rem;
 }
 
 body button {
@@ -45,13 +56,22 @@ body button {
   box-shadow: 0;
   border-radius: 5px;
   margin-bottom: 20px;
+  border: 4px solid rgba(255, 255, 255, 0);
+  transition: ease-in 0.2s;
+}
+body button:hover {
+  border: 4px solid white;
+  background-color: #c9111a;
+  color: rgb(255, 255, 255);
 }
 
 #game-board {
+  margin: 0;
+  padding: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 }
 
 #left-game-div {
