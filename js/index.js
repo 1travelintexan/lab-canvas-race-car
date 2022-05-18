@@ -31,13 +31,13 @@ bg.src = "images/road.png";
 let car = new Image();
 car.src = "images/racecar1.png";
 let carPink = new Image();
-carPink.src = "../images/carPink.png";
+carPink.src = "images/carPink.png";
 let carWhite = new Image();
-carWhite.src = "../images/carWhite.png";
+carWhite.src = "images/carWhite.png";
 let carYellow = new Image();
-carYellow.src = "../images/carYellow.png";
+carYellow.src = "images/carYellow.png";
 let bus = new Image();
-bus.src = "../images/bus.png";
+bus.src = "images/bus.png";
 // let motorcycle = new Image();
 // motorcycle.src = "../images/motorcycle.png";
 
