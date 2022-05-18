@@ -25,19 +25,19 @@ let gameBoard = document.querySelector("#game-board");
 
 //background
 let bg = new Image();
-bg.src = "images/road.png";
+bg.src = "/images/road.png";
 
 //all vehicles
 let car = new Image();
-car.src = "images/racecar1.png";
+car.src = "/images/racecar1.png";
 let carPink = new Image();
-carPink.src = "images/carPink.png";
+carPink.src = "/images/carPink.png";
 let carWhite = new Image();
-carWhite.src = "images/carWhite.png";
+carWhite.src = "/images/carWhite.png";
 let carYellow = new Image();
-carYellow.src = "images/carYellow.png";
+carYellow.src = "/images/carYellow.png";
 let bus = new Image();
-bus.src = "images/bus.png";
+bus.src = "/images/bus.png";
 // let motorcycle = new Image();
 // motorcycle.src = "../images/motorcycle.png";
 
