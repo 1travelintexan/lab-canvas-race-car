@@ -29,7 +29,7 @@ bg.src = "images/road.png";
 
 //all vehicles
 let car = new Image();
-car.src = "../images/racecar1.png";
+car.src = "images/racecar1.png";
 let carPink = new Image();
 carPink.src = "../images/carPink.png";
 let carWhite = new Image();
