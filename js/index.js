@@ -25,7 +25,7 @@ let gameBoard = document.querySelector("#game-board");
 
 //background
 let bg = new Image();
-bg.src = "../images/road.png";
+bg.src = "images/road.png";
 
 //all vehicles
 let car = new Image();
