@@ -26,6 +26,8 @@ let gameBoard = document.querySelector("#game-board");
 //background
 let bg = new Image();
 bg.src = "images/road.png";
+let bg1Y = 0;
+let bg2Y = -canvas.height;
 
 //all vehicles
 let car = new Image();
@@ -95,7 +97,21 @@ function startGame() {
   gameBoard.style.display = "flex";
 
   //draw background
-  ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(bg, 0, bg1Y, canvas.width, canvas.height);
+  //draw my second background
+  ctx.drawImage(bg, 0, bg2Y, canvas.width, canvas.height);
+
+  //make the first road move
+  bg1Y += speed;
+  bg2Y += speed;
+
+  //this checks for when the background reaches the bottom of canvas
+  if (bg1Y > canvas.height) {
+    bg1Y = -canvas.height;
+  }
+  if (bg2Y > canvas.height) {
+    bg2Y = -canvas.height;
+  }
 
   //draw motorcycle
   ctx.drawImage(car, playerX, playerY, playerWidth, playerHeight);
